@@ -1,5 +1,5 @@
 package Object::new ;
-$VERSION = 1.0 ;
+$VERSION = 1.1 ;
 
 ; use 5.006_001
 ; use strict
@@ -50,9 +50,9 @@ __END__
 
 Object::new - Pragma to implement constructor methods
 
-=head1 VERSION 1.0
+=head1 VERSION 1.1
 
-Included in ObjectTools 1.0 distribution.
+Included in ObjectTools 1.1 distribution.
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,6 @@
 #!perl -w
 ; use strict
-; use Test::More tests => 30
+; use Test::More tests => 28
 
 
 ; common_test('BaseClass');
@@ -92,11 +92,11 @@
        , 'aawwwbb'
        , 'Writing a valid value in a property with default'
        )
-       
-   ## 13 ############
-   ; ok( $o1->Barr_namedA eq ''
-       , 'Default empty string'
-       )
+
+## 13 ############
+#   ; ok( not exists $o1->Barr_namedA
+#       , 'Default undef value'
+#       )
 
    ## 14 ############
    ; $o1->Bdefault = 56

@@ -1,5 +1,5 @@
 package Object::props ;
-$VERSION = 1.0 ;
+$VERSION = 1.1 ;
 
 ; use 5.006_001
 ; use strict
@@ -16,7 +16,7 @@ $VERSION = 1.0 ;
       ; foreach my $n ( @{$$item{name}} )        # foreach property
          {
          ###### DEFAULT ######
-         ; my $default = ''
+         ; my $default
          ; if ( defined $$item{default} )        # if default key
             { $default = $$item{default}         # set the default
             ; if ( defined $$item{validation} )  # if validation key
@@ -95,7 +95,7 @@ $VERSION = 1.0 ;
                 )
         or croak qq(Invalid value for "$_[0][1]" property)
       }
-   ; $_[0][0]{$_[0][1]} = $_   # store
+   ; $_[0][0]{$_[0][1]} = $_     # store
    }
 
 ; 1
@@ -106,9 +106,9 @@ __END__
 
 Object::props - Pragma to implement lvalue accessors with options
 
-=head1 VERSION 1.0
+=head1 VERSION 1.1
 
-Included in ObjectTools 1.0 distribution.
+Included in ObjectTools 1.1 distribution.
 
 =head1 SYNOPSIS
 
@@ -215,7 +215,7 @@ You can group properties that have the same set of option by passing a reference
 
 =item default
 
-The property will be initially set to the I<default value>. If you don't set any C<default> option the empty string will be used as default. You can reset a property to its default value by assigning it the undef value.
+The property will be initially set to the I<default value>.  You can reset a property to its default value by assigning it the undef value.
 
     # this will reset the property to its default
     $object->my_prop = undef ;
@@ -223,7 +223,7 @@ The property will be initially set to the I<default value>. If you don't set any
     # this works as well
     undef $object->my_prop ;
 
-If any C<validation> option is set, then the I<default value> is validated at compile time. If no C<default> option is set, then the empty string is used bypassing the C<validation> sub.
+If any C<validation> option is set, then the I<default value> is validated at compile time. If no C<default> option is set, then the property will return the undef value and will bypass the C<validation> sub.
 
 =item validation
 
